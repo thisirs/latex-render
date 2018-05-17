@@ -21,7 +21,7 @@ RUN apt-get install -y --no-install-recommends \
         r-cran-xtable
 
 # epub, html version
-RUN apt-get install -y  --no-install-recommends \
+RUN apt-get install -y --no-install-recommends \
         calibre \
         dvipng \
         fonts-liberation \
