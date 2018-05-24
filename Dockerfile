@@ -51,4 +51,4 @@ RUN echo "export LANG" >> /etc/profile
 # Slim down image
 RUN apt-get --purge -y remove tex.\*-doc$
 RUN apt-get clean
-RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/man/?? /usr/share/man/??_*
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
