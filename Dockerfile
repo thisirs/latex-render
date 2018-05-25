@@ -35,6 +35,9 @@ RUN apt-get install -y --no-install-recommends \
         python3-lxml
 
 RUN apt-get install -y --no-install-recommends \
+        plantuml
+
+RUN apt-get install -y --no-install-recommends \
         git \
         make
 
