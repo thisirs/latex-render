@@ -38,7 +38,8 @@ RUN apt-get install -y --no-install-recommends \
         python3-lxml
 
 RUN apt-get install -y --no-install-recommends \
-        plantuml
+        plantuml \
+        graphviz
 
 RUN apt-get install -y --no-install-recommends \
         git \
