@@ -39,6 +39,8 @@ RUN apt-get install -y --no-install-recommends \
 
 RUN apt-get install -y --no-install-recommends \
         default-jre \
+
+RUN apt-get install -y --no-install-recommends \
         plantuml \
         graphviz
 
