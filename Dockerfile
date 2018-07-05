@@ -38,7 +38,7 @@ RUN apt-get install -y --no-install-recommends \
         python3-lxml
 
 RUN apt-get install -y --no-install-recommends \
-        default-jre \
+        default-jre
 
 RUN apt-get install -y --no-install-recommends \
         plantuml \
