@@ -7,7 +7,9 @@ RUN mkdir -p /usr/share/man/man1 /usr/share/man/man2 /usr/share/man/man3 /usr/sh
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
         texlive-full \
-        biber
+        biber \
+        fonts-opendyslexic \
+        fonts-texgyre
 
 RUN apt-get install -y --no-install-recommends \
         python-matplotlib \
