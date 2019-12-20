@@ -11,54 +11,44 @@ RUN apt-get install -y --no-install-recommends \
         fonts-opendyslexic \
         fonts-texgyre
 
+# Installing pip and python-legacy modules
 RUN apt-get install -y --no-install-recommends \
+        python-pygments \
         python-matplotlib \
         python-numpy \
-        python-pygments \
         python-scipy \
-        python3-matplotlib \
-        python3-numpy \
-        python3-scipy
+        python-pip \
+        python3-pip
 
-RUN apt-get install -y --no-install-recommends \
-        r-base \
-        r-cran-knitr \
-        r-cran-xtable
-
-# epub, html version
-RUN apt-get install -y --no-install-recommends \
-        calibre \
-        dvipng \
-        fonts-liberation \
-        imagemagick \
-        inkscape \
-        ruby \
-        scour \
-        pandoc \
-        tidy \
-        python3-html5-parser \
-        python3-lxml
-
-RUN apt-get install -y --no-install-recommends \
-        default-jre
-
-RUN apt-get install -y --no-install-recommends \
-        plantuml \
-        graphviz
+# Python 3 utils
+RUN pip3 install \
+        pygments \
+        matplotlib \
+        numpy \
+        scipy
 
 RUN apt-get install -y --no-install-recommends \
         git \
-        make
+        make \
+        gcc \
+        libc6-dev \
+        g++
+
+RUN apt-get install -y --no-install-recommends r-base
+RUN Rscript -e "install.packages(c('knitr', 'reticulate', 'xtable'))"
+RUN apt-get install -y libpython3-dev
+
+RUN apt-get install -y --no-install-recommends \
+        default-jre \
+        plantuml \
+        graphviz
 
 # Locale
 RUN apt-get install -y locales
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
 RUN echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen
-RUN locale-gen
-RUN echo "LC_ALL=fr_FR.UTF-8" >> /etc/profile
-RUN echo "LANG=fr_FR.UTF-8" >> /etc/profile
-RUN echo "export LC_ALL" >> /etc/profile
-RUN echo "export LANG" >> /etc/profile
+RUN dpkg-reconfigure -fnoninteractive locales
+ENV LANG en_US.UTF-8
 
 # Slim down image
 RUN apt-get --purge -y remove tex.\*-doc$
