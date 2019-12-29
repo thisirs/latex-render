@@ -52,5 +52,6 @@ ENV LANG en_US.UTF-8
 
 # Slim down image
 RUN apt-get --purge -y remove tex.\*-doc$
+RUN apt-get --purge -y remove texlive-fonts-extra
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
