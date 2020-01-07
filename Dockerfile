@@ -6,10 +6,18 @@ RUN mkdir -p /usr/share/man/man1 /usr/share/man/man2 /usr/share/man/man3 /usr/sh
 
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
-        texlive-full \
+        texlive \
+        texlive-lang-english \
+        texlive-lang-french \
+        texlive-pictures \
+        texlive-latex-extra \
         biber \
         fonts-opendyslexic \
         fonts-texgyre
+
+# Set up tlmgr
+RUN apt-get install -y gpg xz-utils # for tlmgr
+RUN tlmgr init-usertree
 
 # Installing pip and python-legacy modules
 RUN apt-get install -y --no-install-recommends \
@@ -36,7 +44,7 @@ RUN apt-get install -y --no-install-recommends \
 
 RUN apt-get install -y --no-install-recommends r-base
 RUN Rscript -e "install.packages(c('knitr', 'reticulate', 'xtable'))"
-RUN apt-get install -y libpython3-dev
+RUN apt-get install -y libpython3-dev # reticulate
 
 RUN apt-get install -y --no-install-recommends \
         default-jre \
