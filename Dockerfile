@@ -33,7 +33,8 @@ RUN pip3 install \
         pygments \
         matplotlib \
         numpy \
-        scipy
+        scipy \
+        pandas
 
 RUN apt-get install -y --no-install-recommends \
         git \
