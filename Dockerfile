@@ -34,7 +34,8 @@ RUN pip3 install \
         matplotlib \
         numpy \
         scipy \
-        pandas
+        pandas \
+        scikit-learn
 
 RUN apt-get install -y --no-install-recommends \
         git \
