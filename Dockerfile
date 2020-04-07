@@ -11,9 +11,13 @@ RUN apt-get install -y --no-install-recommends \
         texlive-lang-french \
         texlive-pictures \
         texlive-latex-extra \
+        texlive-science \
+        texlive-fonts-extra \
         biber \
         fonts-opendyslexic \
-        fonts-texgyre
+        fonts-texgyre \ 
+        inkscape \
+        lmodern 
 
 # Set up tlmgr
 RUN apt-get install -y gpg xz-utils # for tlmgr
