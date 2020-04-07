@@ -1,4 +1,4 @@
-FROM debian:sid-slim
+FROM ubuntu:bionic
 MAINTAINER Sylvain Rousseau <thisirs@gmail.com>
 
 # Recreate non-existent directories
@@ -23,8 +23,10 @@ RUN apt-get install -y --no-install-recommends \
 RUN apt-get install -y gpg xz-utils # for tlmgr
 RUN tlmgr init-usertree
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 # Installing pip and python-legacy modules
-RUN apt-get install -y --no-install-recommends \
+RUN apt-get install -yq --no-install-recommends \
         python-pygments \
         python-matplotlib \
         python-numpy \
@@ -66,6 +68,5 @@ ENV LANG en_US.UTF-8
 
 # Slim down image
 RUN apt-get --purge -y remove tex.\*-doc$
-RUN apt-get --purge -y remove texlive-fonts-extra
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
