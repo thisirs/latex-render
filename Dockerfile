@@ -19,14 +19,7 @@ RUN apt-get install -y --no-install-recommends \
 RUN apt-get install -y gpg xz-utils # for tlmgr
 RUN tlmgr init-usertree
 
-# Installing pip and python-legacy modules
-RUN apt-get install -y --no-install-recommends \
-        python-pygments \
-        python-matplotlib \
-        python-numpy \
-        python-scipy \
-        python-pip \
-        python3-pip
+RUN apt-get install -y --no-install-recommends python3-pip
 
 # Python 3 utils
 RUN pip3 install \
