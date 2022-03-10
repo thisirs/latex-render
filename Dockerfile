@@ -56,3 +56,15 @@ RUN apt-get --purge -y remove tex.\*-doc$
 RUN apt-get --purge -y remove texlive-fonts-extra
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# SY09-specific
+RUN pip3 install cogapp
+RUN pip3 install yapf
+RUN pip3 install jinja2 # Markdown templates for artifacts
+
+
+RUN apt-get update
+RUN apt-get install -y moreutils # for sponge
+RUN tlmgr option repository http://ftp.fau.de/ctan/systems/texlive/tlnet/
+RUN tlmgr install doublestroke algorithm2e float || true # dsfont package
+RUN updmap -sys
