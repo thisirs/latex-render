@@ -38,10 +38,11 @@ RUN apt-get install -y --no-install-recommends r-base
 RUN Rscript -e "install.packages(c('knitr', 'reticulate', 'xtable'))"
 RUN apt-get install -y libpython3-dev # reticulate
 
+# Deploy tools
 RUN apt-get install -y --no-install-recommends \
-        default-jre \
-        plantuml \
-        graphviz
+    openssh-client \
+    rsync \
+    sshpass
 
 # Locale
 RUN apt-get install -y locales
