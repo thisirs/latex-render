@@ -35,6 +35,7 @@ RUN apt-get install -y --no-install-recommends \
         g++
 
 RUN apt-get install -y --no-install-recommends r-base
+RUN apt-get install -y libpng-dev # Deps for reticulate
 RUN Rscript -e "install.packages(c('knitr', 'reticulate', 'xtable'))"
 RUN apt-get install -y libpython3-dev # reticulate
 
